@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-chat-log-excelizer",
   "description": "用于记录群聊的聊天记录并支持一键导出为 **Excel** 表格文件，保存在指定的文件目录。",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [

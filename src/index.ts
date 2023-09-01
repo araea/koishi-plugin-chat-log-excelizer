@@ -63,6 +63,7 @@ export function apply(ctx: Context, config: Config) {
     time: 'string',
     content: 'text',
   })
+  // 处理当私聊的时候没有 guildId 的情况
   ctx.on('message', (session) => {
     const {
       guildId,
@@ -74,9 +75,21 @@ export function apply(ctx: Context, config: Config) {
 
     let date = new Date(timestamp);
 
-    let time = date.toLocaleString('zh-CN');
+    let time = date.toLocaleString('zh-CN', {
+      timeZone: 'Asia/Shanghai',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
 
-    ctx.database.create('chat_log_excelizer_table', { guildId, userId, username, time, content })
+    // 如果 guildId 不存在，可以设置为默认值或留空
+    const defaultGuildId = 'N/A'; // 默认值为 'N/A'
+    const resolvedGuildId = guildId || defaultGuildId;
+
+    ctx.database.create('chat_log_excelizer_table', { guildId: resolvedGuildId, userId, username, time, content })
   })
   ctx.command('chatLogExcelizer', '查看chatLogExcelizer指令帮助 ')
     .action(({ session }) => {
