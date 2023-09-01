@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-chat-log-excelizer",
-  "description": "",
+  "description": "用于记录群聊的聊天记录并支持一键导出为 **Excel** 表格文件，保存在指定的文件目录。",
   "version": "0.0.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -9,13 +9,31 @@
     "dist"
   ],
   "license": "MIT",
+  "author": "Nawyjx <3373167460@qq.com>",
+  "homepage": "https://www.npmjs.com/package/koishi-plugin-chat-log-excelizer?activeTab=readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/araea/koishi-plugin-chat-log-excelizer.git"
+  },
   "scripts": {},
   "keywords": [
     "chatbot",
     "koishi",
-    "plugin"
+    "plugin",
+    "excel",
+    "chatLog",
+    "excelizer",
+    "exceljs",
+    "聊天记录",
+    "导出",
+    "聊天记录导出",
+    "表格",
+    "备份"
   ],
   "peerDependencies": {
     "koishi": "^4.14.3"
+  },
+  "dependencies": {
+    "exceljs": "^4.3.0"
   }
 }
