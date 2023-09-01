@@ -1,5 +1,3 @@
-This is the readme.md document for the code on the current web page:
-
 # koishi-plugin-chat-log-excelizer
 
 [![npm](https://img.shields.io/npm/v/koishi-plugin-chat-log-excelizer?style=flat-square)](https://www.npmjs.com/package/koishi-plugin-chat-log-excelizer)
@@ -25,6 +23,7 @@ This is the readme.md document for the code on the current web page:
 - `chatLogExcelizer`：查看本插件的指令帮助。
 - `chatLogExcelizer.exporterAll`：导出所有群组的聊天记录（不会自动清空数据表）
 - `chatLogExcelizer.exporter`：导出当前群组的聊天记录为 Excel 文件，并根据设置决定是否发送到群组或清空数据表。
+- `chatLogExcelizer.clearAllData`：清空所有群组的聊天记录数据表。
 - `chatLogExcelizer.clearData`：清空当前群组的聊天记录数据表。
 
 ## 🌠 后续计划

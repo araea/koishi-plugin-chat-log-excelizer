@@ -16,6 +16,7 @@ export const usage = `## 🎮 使用
 - \`chatLogExcelizer\`：查看本插件的指令帮助。
 - \`chatLogExcelizer.exporterAll\`：导出所有群组的聊天记录（不会自动清空数据表）
 - \`chatLogExcelizer.exporter\`：导出当前群组的聊天记录为 Excel 文件，并根据设置决定是否发送到群组或清空数据表。
+- \`chatLogExcelizer.clearAllData\`：清空所有群组的聊天记录数据表。
 - \`chatLogExcelizer.clearData\`：清空当前群组的聊天记录数据表。`
 
 export interface Config {
@@ -115,6 +116,11 @@ export function apply(ctx: Context, config: Config) {
 文件路径：${result[1]}`
       }
       logger.error(result[1])
+    })
+  ctx.command('chatLogExcelizer.clearAllData', '清空所有群组的聊天记录数据表 ')
+    .action(async ({ session }) => {
+      await ctx.database.remove('chat_log_excelizer_table', {})
+      return '清空成功！'
     })
   ctx.command('chatLogExcelizer.clearData', '清空当前群组的聊天记录数据表 ')
     .action(async ({ session }) => {
